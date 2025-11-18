@@ -120,6 +120,10 @@ OBSERVAÇÕES IMPORTANTES:
     "clientes": [...],
     "enderecos": [...]
   }
+- Para testar a funcionalidade de importação, utilize o arquivo popula_banco.json incluído no projeto.
+  Este arquivo contém dados de exemplo pré-configurados (usuários, clientes e endereços) que podem
+  ser importados através da opção "Configurações" na tela de login.
+  
 - A aplicação é totalmente mobile-friendly e responsiva
 
 BUGS CONHECIDOS:

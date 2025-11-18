@@ -1,0 +1,77 @@
+{
+  "usuarios": [
+    {
+      "usuario": "admin",
+      "senha": "admin123"
+    },
+    {
+      "usuario": "teste",
+      "senha": "teste123"
+    }
+  ],
+  "clientes": [
+    {
+      "nome_completo": "João Silva",
+      "cpf": "123.456.789-00",
+      "data_nascimento": "1990-05-15",
+      "telefone": "(11) 3456-7890",
+      "celular": "(11) 98765-4321"
+    },
+    {
+      "nome_completo": "Maria Santos",
+      "cpf": "987.654.321-00",
+      "data_nascimento": "1985-08-22",
+      "telefone": "(21) 2345-6789",
+      "celular": "(21) 97654-3210"
+    },
+    {
+      "nome_completo": "Pedro Oliveira",
+      "cpf": "456.789.123-00",
+      "data_nascimento": "1992-12-03",
+      "telefone": null,
+      "celular": "(31) 99876-5432"
+    }
+  ],
+  "enderecos": [
+    {
+      "cliente_id": 1,
+      "cep": "01310-100",
+      "rua": "Avenida Paulista",
+      "bairro": "Bela Vista",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "pais": "Brasil",
+      "principal": true
+    },
+    {
+      "cliente_id": 1,
+      "cep": "04547-130",
+      "rua": "Rua das Flores",
+      "bairro": "Vila Olímpia",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "pais": "Brasil",
+      "principal": false
+    },
+    {
+      "cliente_id": 2,
+      "cep": "20040-020",
+      "rua": "Rua do Ouvidor",
+      "bairro": "Centro",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "pais": "Brasil",
+      "principal": true
+    },
+    {
+      "cliente_id": 3,
+      "cep": "30130-010",
+      "rua": "Avenida Afonso Pena",
+      "bairro": "Centro",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "pais": "Brasil",
+      "principal": true
+    }
+  ]
+}
