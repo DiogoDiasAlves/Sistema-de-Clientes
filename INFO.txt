@@ -1,0 +1,165 @@
+==========================================
+  INSTRUÇÕES PARA EXECUTAR O PROJETO
+==========================================
+
+Este é um sistema de cadastro de clientes e endereços desenvolvido com HTML, CSS e JavaScript (Vanilla).
+
+REQUISITOS:
+-----------
+- Navegador web moderno (Chrome, Firefox, Edge, Safari)
+- Conexão com internet (apenas para carregar as bibliotecas via CDN)
+
+INSTRUÇÕES PARA EXECUTAR:
+-------------------------
+1. Extraia todos os arquivos do projeto para uma pasta no seu computador.
+
+2. Certifique-se de que os arquivos estão organizados da seguinte forma:
+   DesafioTecnico/
+   ├── index.html
+   ├── clientes.html
+   ├── enderecos.html
+   ├── src/
+   │   ├── app.js
+   │   ├── core/
+   │   │   ├── repositories/
+   │   │   │   ├── UsuarioRepository.js
+   │   │   │   ├── ClienteRepository.js
+   │   │   │   └── EnderecoRepository.js
+   │   │   └── services/
+   │   │       ├── AuthService.js
+   │   │       ├── ClienteService.js
+   │   │       ├── EnderecoService.js
+   │   │       └── DatabaseSyncService.js
+   │   ├── infrastructure/
+   │   │   └── database/
+   │   │       ├── DatabaseConnection.js
+   │   │       ├── LocalStorageAdapter.js
+   │   │       └── DatabaseExportService.js
+   │   ├── ui/
+   │   │   └── controllers/
+   │   │       ├── LoginController.js
+   │   │       ├── ClienteController.js
+   │   │       └── EnderecoController.js
+   │   └── utils/
+   │       ├── Formatadores.js
+   │       └── MascarasInput.js
+   ├── assets/
+   │   ├── css/
+   │   │   └── style.css
+   │   └── libs/
+   │       └── alasql.min.js
+   └── INFO.txt
+
+3. Abra o arquivo "index.html" diretamente no navegador (duplo clique no arquivo).
+   
+
+4. Na tela de login, você pode:
+   - Cadastrar um novo usuário (clicando em "Não tem conta? Cadastre-se")
+   - Ou fazer login com um usuário existente
+   - Ou fazer upload de um banco de dados pré-populado (clicando em "Configurações")
+
+FUNCIONALIDADES:
+----------------
+1. TELA DE LOGIN (index.html):
+   - Login com usuário e senha
+   - Cadastro de novos usuários (não permite duplicatas)
+   - Configurações para upload de banco de dados em formato JSON
+
+2. TELA DE CLIENTES (clientes.html):
+   - Listagem de todos os clientes cadastrados
+   - Cadastro de novos clientes com os campos:
+     * Nome completo (obrigatório)
+     * CPF (obrigatório, único, formato: 000.000.000-00)
+     * Data de Nascimento (obrigatório)
+     * Telefone (opcional, formato: (00) 0000-0000)
+     * Celular (obrigatório, formato: (00) 00000-0000)
+   - Edição de clientes existentes
+   - Exclusão de clientes (com opção de excluir endereços relacionados)
+
+3. TELA DE ENDEREÇOS (enderecos.html):
+   - Listagem de todos os endereços cadastrados
+   - Cadastro de novos endereços com os campos:
+     * Cliente (obrigatório, seleção de cliente existente)
+     * CEP (obrigatório, formato: 00000-000)
+     * Rua (obrigatório)
+     * Bairro (obrigatório)
+     * Cidade (obrigatório)
+     * Estado (obrigatório, máximo 2 caracteres)
+     * País (obrigatório, padrão: Brasil)
+     * Marcar como principal (obrigatório, cada cliente deve ter pelo menos um endereço principal)
+   - Edição de endereços existentes
+   - Exclusão de endereços
+
+4. EXPORTAÇÃO DE DADOS:
+   - Clique no botão "Exportar DB" no menu de navegação
+   - Os dados serão baixados em formato JSON
+   - O arquivo conterá todas as tabelas: usuarios, clientes e enderecos
+
+FUNCIONALIDADES EXTRAS IMPLEMENTADAS:
+-------------------------------------
+Além dos requisitos obrigatórios, foram implementadas as seguintes funcionalidades:
+
+- Edição de clientes e endereços com campos pré-preenchidos
+- Exclusão em cascata: ao excluir um cliente, todos os seus endereços são automaticamente excluídos
+- Máscaras de input automáticas para CPF, telefone, celular e CEP
+- Validação de CPF único (não permite duplicatas)
+- Validação de endereço principal obrigatório (cada cliente deve ter pelo menos um)
+- Formatação automática de dados (CPF, CEP, datas)
+- Persistência automática no localStorage após cada operação
+- IDs únicos preservados (não são reorganizados após exclusões)
+- Interface responsiva e mobile-friendly
+- Tratamento de erros com mensagens informativas
+
+OBSERVAÇÕES IMPORTANTES:
+------------------------
+- O banco de dados é salvo automaticamente no localStorage do navegador
+- Os dados persistem mesmo após fechar o navegador (desde que não limpe o localStorage)
+- Para fazer upload de um banco pré-populado, o arquivo JSON deve ter a seguinte estrutura:
+  {
+    "usuarios": [...],
+    "clientes": [...],
+    "enderecos": [...]
+  }
+- A aplicação é totalmente mobile-friendly e responsiva
+
+BUGS CONHECIDOS:
+----------------
+- Ao excluir múltiplos clientes em sequência (especialmente em ordem crescente de ID), 
+  pode ocorrer uma inconsistência temporária no localStorage. 
+  Solução: Recarregue a página após exclusões múltiplas para garantir sincronização completa.
+  
+  Nota: A exclusão funciona corretamente no banco de dados. O problema é apenas na 
+  sincronização do localStorage em alguns casos específicos.
+
+ARQUITETURA:
+------------
+- Clean Architecture com separação de responsabilidades
+- Repository Pattern para acesso a dados
+- Service Layer para lógica de negócio
+- Controller Pattern para interação com UI
+- Injeção de dependências manual
+
+TECNOLOGIAS UTILIZADAS:
+-----------------------
+- HTML5
+- CSS3
+- JavaScript (Vanilla) - ES6+
+- jQuery 3.7.0 (CDN) - Framework JavaScript para manipulação do DOM
+- Bootstrap 5.3.0 (CDN) - Framework CSS para interface responsiva
+- AlaSQL 0.5.5 (local) - Banco de dados SQL no navegador
+  * O arquivo alasql.min.js está incluído localmente em assets/libs/
+  * Isso garante que a aplicação funcione mesmo sem conexão com internet
+  * Conforme requisito do projeto: "Obrigatório utilização do plugin alasql.js"
+
+SUPORTE:
+--------
+Para dúvidas ou problemas, verifique:
+1. Se todos os arquivos estão na mesma pasta
+2. Se o navegador está atualizado
+3. Se o JavaScript está habilitado no navegador
+4. Se há conexão com internet (para carregar as bibliotecas)
+
+==========================================
+Candidato: Diogo Dias De Abreu Alves
+==========================================
+

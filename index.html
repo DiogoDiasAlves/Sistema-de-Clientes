@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card shadow-lg login-card">
+            <div class="card-body p-5">
+                <h2 class="card-title text-center mb-4">Sistema de Clientes</h2>
+                
+                <!-- Formulário de Login -->
+                <div id="loginForm">
+                    <div class="mb-3">
+                        <label for="usuario" class="form-label">Usuário</label>
+                        <input type="text" class="form-control" id="usuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" required>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                        <button type="button" class="btn btn-primary" id="btnLogin">Entrar</button>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="#" id="linkCadastro" class="text-decoration-none">Não tem conta? Cadastre-se</a>
+                    </div>
+                    <div class="text-center">
+                        <a href="#" id="linkConfiguracoes" class="text-decoration-none">Configurações</a>
+                    </div>
+                    <div id="msgErro" class="alert alert-danger mt-3 d-none" role="alert"></div>
+                </div>
+
+                <!-- Formulário de Cadastro -->
+                <div id="cadastroForm" class="d-none">
+                    <h4 class="mb-4 text-center">Cadastro de Usuário</h4>
+                    <div class="mb-3">
+                        <label for="novoUsuario" class="form-label">Usuário</label>
+                        <input type="text" class="form-control" id="novoUsuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="novaSenha" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="novaSenha" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="confirmarSenha" required>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                        <button type="button" class="btn btn-success" id="btnCadastrar">Cadastrar</button>
+                    </div>
+                    <div class="text-center">
+                        <a href="#" id="linkVoltarLogin" class="text-decoration-none">Voltar para Login</a>
+                    </div>
+                    <div id="msgErroCadastro" class="alert alert-danger mt-3 d-none" role="alert"></div>
+                    <div id="msgSucessoCadastro" class="alert alert-success mt-3 d-none" role="alert"></div>
+                </div>
+
+                <!-- Configurações -->
+                <div id="configForm" class="d-none">
+                    <h4 class="mb-4 text-center">Configurações</h4>
+                    <div class="mb-3">
+                        <label for="uploadDB" class="form-label">Upload de Banco de Dados (JSON)</label>
+                        <input type="file" class="form-control" id="uploadDB" accept=".json">
+                        <small class="form-text text-muted">Faça upload de um arquivo JSON pré-populado</small>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                        <button type="button" class="btn btn-info" id="btnUploadDB">Importar Banco</button>
+                    </div>
+                    <div class="text-center">
+                        <a href="#" id="linkVoltarLogin2" class="text-decoration-none">Voltar para Login</a>
+                    </div>
+                    <div id="msgConfig" class="alert mt-3 d-none" role="alert"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliotecas externas -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/alasql.min.js"></script>
+    
+    <!-- Infrastructure -->
+    <script src="src/infrastructure/database/DatabaseConnection.js"></script>
+    <script src="src/infrastructure/database/LocalStorageAdapter.js"></script>
+    <script src="src/infrastructure/database/DatabaseExportService.js"></script>
+    
+    <!-- Repositories -->
+    <script src="src/core/repositories/UsuarioRepository.js"></script>
+    <script src="src/core/repositories/ClienteRepository.js"></script>
+    <script src="src/core/repositories/EnderecoRepository.js"></script>
+    
+    <!-- Services -->
+    <script src="src/core/services/AuthService.js"></script>
+    <script src="src/core/services/ClienteService.js"></script>
+    <script src="src/core/services/EnderecoService.js"></script>
+    <script src="src/core/services/DatabaseSyncService.js"></script>
+    
+    <!-- Utils -->
+    <script src="src/utils/Formatadores.js"></script>
+    <script src="src/utils/MascarasInput.js"></script>
+    
+    <!-- UI Controllers -->
+    <script src="src/ui/controllers/LoginController.js"></script>
+    
+    <!-- App Principal -->
+    <script src="src/app.js"></script>
+</body>
+</html>
+

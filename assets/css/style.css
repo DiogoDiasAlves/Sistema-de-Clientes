@@ -1,0 +1,71 @@
+/* Estilos personalizados */
+.login-card {
+    max-width: 400px;
+    width: 100%;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Mobile Friendly */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .login-card {
+        margin: 10px;
+        padding: 20px !important;
+    }
+    
+    .table {
+        font-size: 0.875rem;
+    }
+    
+    .btn {
+        font-size: 0.875rem;
+    }
+    
+    .modal-dialog {
+        margin: 10px;
+    }
+}
+
+/* Estilização de formulários */
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Estilização de tabelas */
+.table thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Badge principal */
+.badge-principal {
+    background-color: #198754;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.badge-secundario {
+    background-color: #6c757d;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Espaçamento */
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Botões de ação */
+.btn-action {
+    margin: 0 2px;
+}
+
